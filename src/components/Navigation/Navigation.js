@@ -1,11 +1,6 @@
 import React from "react";
-import { Text, View, TextInput } from 'react-native';
-
-function SignUp() {
-    return (
-        <TextInput />
-    )
-}
+import { Text, View } from 'react-native';
+import SignUp from "../SignUp";
 
 function HomeScreen() {
     return (
@@ -22,3 +17,4 @@ export default function Navigation() {
         user ? <HomeScreen /> : <SignUp />
     );
 }
+  
