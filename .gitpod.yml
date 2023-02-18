@@ -3,3 +3,6 @@ tasks:
   - name: Terminal 1
     init: npm install # runs during prebuild => https://www.gitpod.io/docs/configure/projects/prebuilds
     command: npm install -g eas-cli
+  - name: Terminal 2
+    init: echo "new-component CLI" # runs during prebuild => https://www.gitpod.io/docs/configure/projects/prebuilds
+    command: yarn global add new-component
