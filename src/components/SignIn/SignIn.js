@@ -1,10 +1,23 @@
 import React from "react";
 import { View, Text, TextInput, StyleSheet, Button } from 'react-native';
+import { axiosInstance } from "../../utils";
 
-function SignUp() {
+function SignIn({ setUser }) {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
-    const [passwordConfirmation, setPasswordConfirmation] = React.useState("");
+
+    async function signInRequest() {
+        try {
+            const user = {
+                email: email,
+                password: password
+            }
+            const response = await axiosInstance.post(`/users/sign_in`, { user: user })
+            console.log(response);
+        } catch (error) {
+            console.error(error.toJSON());
+        }
+    }
 
     return (
         <View>
@@ -26,16 +39,9 @@ function SignUp() {
                 textContentType="password"
                 secureTextEntry={true}
             />
-            <TextInput
-                style={styles.input}
-                value={passwordConfirmation}
-                onChangeText={(value) => setPasswordConfirmation(value)}
-                placeholder="Password Confirmation"
-                textContentType="password"
-                secureTextEntry={true}
-            />
             <Button
-                title="Sign Up"
+                title="Sign In"
+                onPress={signInRequest}
             />
         </View>
     )
@@ -55,4 +61,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default SignUp;
+export default SignIn;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, View } from 'react-native';
-import SignUp from "../SignUp";
+import SignIn from "../SignIn";
 
 function HomeScreen() {
     return (
@@ -14,7 +14,7 @@ export default function Navigation() {
     const [user, setUser] = React.useState(null);
 
     return (
-        user ? <HomeScreen /> : <SignUp />
+        user ? <HomeScreen /> : <SignIn setUser={setUser} />
     );
 }
   
