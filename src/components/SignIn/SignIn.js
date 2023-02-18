@@ -8,12 +8,17 @@ function SignIn({ setUser }) {
 
     async function signInRequest() {
         try {
-            const user = {
-                email: email,
-                password: password
+            const apiEndPoint = "/users/sign_in.json"
+					
+            const body = {
+                user: {
+                    email: email,
+                    password: password
+                }
             }
-            const response = await axiosInstance.post(`/users/sign_in`, { user: user })
-            console.log(response);
+
+            const response = await axiosInstance.post(apiEndPoint, body)
+            setUser(response.data);
         } catch (error) {
             console.error(error.toJSON());
         }
@@ -21,7 +26,7 @@ function SignIn({ setUser }) {
 
     return (
         <View>
-            <Text style={styles.title}>Sign Up!</Text>
+            <Text>Sign In!</Text>
             <TextInput
                 style={styles.input}
                 value={email}
@@ -54,10 +59,6 @@ const styles = StyleSheet.create({
       marginBottom: 12,
       borderWidth: 1,
       padding: 10,
-    },
-    title: {
-        fontSize: 18,
-        fontWeight: '500',
     }
 });
 
