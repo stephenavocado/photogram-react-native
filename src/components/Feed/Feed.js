@@ -29,7 +29,7 @@ function Feed({ user }) {
 
     return (
         <SafeAreaView>
-            <Text>Feed</Text>
+            <Text style={styles.title}>Feed</Text>
             <FlatList
                 data={photos}
                 renderItem={({item}) => <Photo photo={item} />}
@@ -43,6 +43,10 @@ const styles = StyleSheet.create({
     feed: {
         gap: 8,
         marginTop: 8
+    },
+    title: {
+        fontSize: 18, 
+        fontWeight: '700'
     }
 })
 
