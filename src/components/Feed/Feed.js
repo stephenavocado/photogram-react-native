@@ -1,14 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList, SafeAreaView } from "react-native";
+import { View, Text, StyleSheet, FlatList } from "react-native";
 import { axiosInstance } from "../../utils"; 
-
-function Photo({ photo }) {
-    return (
-        <View style={styles.feed}>
-            <Text>{photo.caption}</Text>
-        </View>
-    )
-}
+import Photo from "../Photo";
 
 function Feed({ user }) {
     const [photos, setPhotos] = React.useState([]);
@@ -27,15 +20,22 @@ function Feed({ user }) {
         getFeed()
     }, [])
 
+    function ListHeader() {
+        return (
+            <Text style={styles.title}>feed</Text>
+        )
+    }
+
     return (
-        <SafeAreaView>
-            <Text style={styles.title}>Feed</Text>
+        <View>
             <FlatList
                 data={photos}
                 renderItem={({item}) => <Photo photo={item} />}
                 keyExtractor={item => item.id}
+                contentContainerStyle={styles.contentContainer}
+                ListHeaderComponent={ListHeader}
             />
-        </SafeAreaView>
+        </View>
     )
 }
 
@@ -45,8 +45,11 @@ const styles = StyleSheet.create({
         marginTop: 8
     },
     title: {
-        fontSize: 18, 
-        fontWeight: '700'
+        fontSize: 28, 
+        fontWeight: '600'
+    },
+    contentContainer: {
+        padding: 12
     }
 })
 
