@@ -29,7 +29,7 @@ function Feed() {
     }
 
     return (
-        <View>
+        <View style={styles.feed}>
             <FlatList
                 data={photos}
                 renderItem={({item}) => <Photo photo={item} />}
@@ -43,8 +43,7 @@ function Feed() {
 
 const styles = StyleSheet.create({
     feed: {
-        gap: 8,
-        marginTop: 8
+        backgroundColor: 'white'
     },
     title: {
         fontSize: 28, 

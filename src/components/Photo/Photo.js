@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 8,
         borderColor: 'gainsboro',
-        width: '100%'
+        width: '100%',
+        backgroundColor: 'white'
     },
     imageWrapper: {
         height: 225,
