@@ -1,5 +1,5 @@
 import React from "react";
-import SignIn from "../SignIn";
+import AuthNavigation from "../AuthNavigation";
 import Feed from "../Feed";
 import { AuthContext } from "../AuthProvider";
 import { NavigationContainer } from '@react-navigation/native';
@@ -9,7 +9,7 @@ export default function Navigation() {
 
     return (
         <NavigationContainer>
-            {user ? <Feed /> : <SignIn />}
+            {user ? <Feed /> : <AuthNavigation />}
         </NavigationContainer>
     );
 }
