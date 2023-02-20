@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
     form: {
         flex: 1,
         padding: 12,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: 'white'
     },
     input: {
       height: 40,

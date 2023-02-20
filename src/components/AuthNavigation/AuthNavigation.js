@@ -4,9 +4,9 @@ import SignIn from "./SignIn";
 
 const AuthStack = createNativeStackNavigator();
 
-function AuthNavigation({ setUser }) {
+function AuthNavigation() {
     return (
-        <AuthStack.Navigator>
+        <AuthStack.Navigator screenOptions={{ headerShown: false }}>
             <AuthStack.Screen name="SignIn" component={SignIn} />
         </AuthStack.Navigator>
     )

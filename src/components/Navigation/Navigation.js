@@ -37,7 +37,7 @@ export default function Navigation() {
 
     return (
         <NavigationContainer>
-            {user ? <Feed user={user} /> : <AuthNavigation setUser={setUser} />}
+            {user ? <Feed user={user} /> : <AuthNavigation />}
         </NavigationContainer>
     );
 }
