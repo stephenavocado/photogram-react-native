@@ -25,7 +25,7 @@ function SignIn({ setUser }) {
     }
 
     return (
-        <View>
+        <View style={styles.form}>
             <Text>Sign In!</Text>
             <TextInput
                 style={styles.input}
@@ -53,6 +53,11 @@ function SignIn({ setUser }) {
 }
 
 const styles = StyleSheet.create({
+    form: {
+        flex: 1,
+        padding: 12,
+        justifyContent: 'center'
+    },
     input: {
       height: 40,
       marginTop: 12,

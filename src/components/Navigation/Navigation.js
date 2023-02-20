@@ -1,7 +1,8 @@
 import React from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import SignIn from "../SignIn";
+import AuthNavigation from "../AuthNavigation";
 import Feed from "../Feed";
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function Navigation() {
     const [user, setUser] = React.useState(null);
@@ -35,7 +36,9 @@ export default function Navigation() {
     }, [user]);
 
     return (
-        user ? <Feed user={user} /> : <SignIn setUser={setUser} />
+        <NavigationContainer>
+            {user ? <Feed user={user} /> : <AuthNavigation setUser={setUser} />}
+        </NavigationContainer>
     );
 }
   
