@@ -2,8 +2,10 @@ import React from "react";
 import { View, Text, StyleSheet, FlatList } from "react-native";
 import { axiosInstance } from "../../utils"; 
 import Photo from "../Photo";
+import { AuthContext } from "../AuthProvider";
 
-function Feed({ user }) {
+function Feed() {
+    const { user } = React.useContext(AuthContext);
     const [photos, setPhotos] = React.useState([]);
 
     async function getFeed() {
