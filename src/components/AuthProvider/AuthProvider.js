@@ -26,7 +26,9 @@ function AuthProvider({ children }) {
         }
     };
 
-
+    React.useEffect(() => {
+        loadUser();
+    }, []);
     
     React.useEffect(() => {
         saveUser(user);
